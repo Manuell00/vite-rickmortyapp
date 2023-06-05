@@ -1,0 +1,27 @@
+@use './partials/variables' as *;
+
+// Bootstrap => npm install bootstrap
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+// Fonts => npm install @fontsource/montserrat
+// facciamo vedere fontsource: https://fontsource.org/fonts/montserrat
+@import 'node_modules/@fontsource/montserrat/index.css';
+@import 'node_modules/@fontsource/montserrat/700.css';
+
+body{
+    font-family: $main-font;
+    color: $text-color;
+    background-image: linear-gradient(to left,
+            transparent 0px,
+            transparent 20px,
+            rgba(#000, 0.02) 20px,
+            rgba(#000, 0.02) 40px),
+
+            linear-gradient(to bottom,
+            transparent 0px,
+            transparent 20px,
+            rgba(#000, 0.02) 20px,
+            rgba(#000, 0.02) 40px);
+
+    background-size: 40px, 100% 40px
+}
