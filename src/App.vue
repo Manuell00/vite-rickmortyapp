@@ -8,6 +8,7 @@ import axios from 'axios';
 import AppHeader from './components/AppHeader.vue'
 import CharactersList from './components/CharactersList.vue'
 import AppLoader from './components/AppLoader.vue'
+import AppSearch from './components/AppSearch.vue'
 
 
 // Inserisco l'EXPORT
@@ -15,7 +16,8 @@ export default {
   components: {
     AppHeader,
     CharactersList,
-    AppLoader
+    AppLoader,
+    AppSearch,
   },
 
   // Inserisco i dati
@@ -53,7 +55,11 @@ export default {
 
   <!-- Modificando il valore della variabile message, il componente figlio (AppHeader cambiera il valore della propria variabile) -->
   <AppHeader message="Rick e Morty App" />
-  <CharactersList />
+
+  <main>
+    <AppSearch />
+    <CharactersList />
+  </main>
 </template>
 
 <style lang="scss">

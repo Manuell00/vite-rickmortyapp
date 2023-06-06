@@ -49,9 +49,4 @@ h4 {
         margin: 1rem auto
     }
 }
-
-img {
-    border-radius: 50%;
-    box-shadow: 0 0 6px 3px rgba(#000, 0.15);
-}
 </style>
