@@ -11,6 +11,13 @@ export default {
         return {
             store
         }
+    },
+
+    methods: {
+        resetSearch() {
+            store.searchText = ""
+            this.$emit('mysearch')
+        }
     }
 }
 </script>
@@ -33,10 +40,18 @@ export default {
 
                     <div class="col-auto">
                         <div class="row">
+                            <!-- Creo un bottone che cerchi nell'API -->
                             <div class="col-auto">
                                 <button type="submit" class="btn btn-primary mb-2"
                                     @click.prevent="$emit('mysearch')">Search</button>
                             </div>
+
+                            <!-- Creo un bottone di RESET -->
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-warning mb-2"
+                                    @click.prevent="resetSearch">Reset</button>
+                            </div>
+
                         </div>
                     </div>
                 </form>
