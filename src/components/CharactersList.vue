@@ -4,12 +4,14 @@ import { store } from './../store.js';
 
 // Importo i COMPONENTI
 import SingleCharacter from './SingleCharacter.vue'
+import ResultMessage from './ResultMessage.vue'
 
 // Inserisco l'EXPORT
 export default {
     name: 'CharactersList',
     components: {
-        SingleCharacter
+        SingleCharacter,
+        ResultMessage
     },
 
     // Anche qui inseriamo i data dello store così da poterlo utilizzare
@@ -28,6 +30,11 @@ export default {
         <div class="row">
             <div v-for="character in store.charactersList" :key="character.id" class="col-6 col-md-4 col-lg-3 mb-3">
                 <SingleCharacter :details="character" />
+            </div>
+
+            <!-- Component di risultati trovati -->
+            <div class="col-12 mb-5">
+                <ResultMessage />
             </div>
         </div>
     </section>
