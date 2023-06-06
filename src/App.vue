@@ -31,7 +31,15 @@ export default {
     // THEN mi dice che se va bene la chiamata allora fa quello che scrivo come codice
     // CATCH invece intercetta l'errore e mi permette visualizzarli (ad esempio con un console.log)
     getCharacters() {
-      axios.get(store.apiURL).then(res => {
+      console.log("ciao");
+
+      let myUrl = store.apiURL
+
+      if (store.searchText !== "") {
+        myUrl += `?${store.apiNameParameter}=${store.searchText}`
+      }
+
+      axios.get(myUrl).then(res => {
         store.charactersList = res.data.results;
         store.loading = false;
       })
@@ -57,7 +65,7 @@ export default {
   <AppHeader message="Rick e Morty App" />
 
   <main>
-    <AppSearch />
+    <AppSearch @mysearch="getCharacters" />
     <CharactersList />
   </main>
 </template>

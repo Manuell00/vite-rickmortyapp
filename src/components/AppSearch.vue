@@ -1,7 +1,17 @@
 <script>
+// Importo lo STORE
+import { store } from './../store.js';
+
 // EXPORT
 export default {
     name: "AppSearch",
+
+    // Anche qui inseriamo i data dello store così da poterlo utilizzare
+    data() {
+        return {
+            store
+        }
+    }
 }
 </script>
 
@@ -15,13 +25,17 @@ export default {
                 <form class="row g-3 justify-content-center">
                     <div class="col-auto">
                         <label for="search-character" class="visually-hidden">Search character</label>
-                        <input class="form-control" type="text" id="search-character" placeholder="Search Character">
+
+                        <!-- Aggancio il v-model al searchText, trim invece taglia gli spazi -->
+                        <input class="form-control" type="text" id="search-character" placeholder="Search Character"
+                            v-model.trim="store.searchText">
                     </div>
 
                     <div class="col-auto">
                         <div class="row">
                             <div class="col-auto">
-                                <button type="submit" class="btn btn-primary mb-2">Search</button>
+                                <button type="submit" class="btn btn-primary mb-2"
+                                    @click.prevent="$emit('mysearch')">Search</button>
                             </div>
                         </div>
                     </div>
