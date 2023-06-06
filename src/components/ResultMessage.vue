@@ -36,12 +36,12 @@ section {
     justify-content: center;
     height: 100px;
     font-size: 30px;
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: lightgrey;
 
     #risultato {
         margin-left: 10px;
-        background-color: green;
+        background-color: dodgerblue;
         padding: 10px;
         border-radius: 50px;
     }
