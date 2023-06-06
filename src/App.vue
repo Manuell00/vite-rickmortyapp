@@ -31,8 +31,6 @@ export default {
     // THEN mi dice che se va bene la chiamata allora fa quello che scrivo come codice
     // CATCH invece intercetta l'errore e mi permette visualizzarli (ad esempio con un console.log)
     getCharacters() {
-      console.log("ciao");
-
       let myUrl = store.apiURL
 
       if (store.searchText !== "") {
