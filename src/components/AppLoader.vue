@@ -2,8 +2,8 @@
 // Inserisco l'EXPORT
 export default {
     name: 'AppLoader',
-    props: ['label']
-};
+    props: ['label'],
+}
 </script>
 
 <!-- TEMPLATE -->
@@ -36,6 +36,7 @@ export default {
 }
 
 svg {
+    fill: red;
     width: 64px;
     margin: 1rem 0;
     animation: pulse 1s infinite alternate;
@@ -47,7 +48,7 @@ svg {
     }
 
     to {
-        transform: scale(1.2);
+        transform: scale(1.6);
     }
 }
 
@@ -56,5 +57,6 @@ svg {
 .text {
     text-transform: uppercase;
     letter-spacing: 2px;
+    font-size: 50px;
 }
 </style>

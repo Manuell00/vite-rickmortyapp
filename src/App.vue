@@ -44,7 +44,15 @@ export default {
         .catch(err => {
           console.log(err);
         })
-    }
+
+        // Inserisco questo metodo per visualizzare la pagina di loading
+        .finally(() => {
+          store.loading = true
+          setTimeout(() => {
+            store.loading = false;
+          }, 3000);
+        });
+    },
   },
 
   // CREATED viene utilizzato al posto di mounted perchè svolge l'attività quando viene creata l'app
@@ -57,15 +65,19 @@ export default {
 <!-- TEMPLATE -->
 <template>
   <!-- In questo caso visualizzo il componente AppLoader solo quando la variabile store.loading è == true, quando in realtà la pagina è caricata questo diventerà false e quindi non sarà più visualizzato  -->
-  <AppLoader v-if="store.loading" />
+  <div v-if="store.loading">
+    <AppLoader />
+  </div>
 
-  <!-- Modificando il valore della variabile message, il componente figlio (AppHeader cambiera il valore della propria variabile) -->
-  <AppHeader message="Rick e Morty App" />
+  <div v-else>
+    <!-- Modificando il valore della variabile message, il componente figlio (AppHeader cambiera il valore della propria variabile) -->
+    <AppHeader message="Rick e Morty App" />
 
-  <main>
-    <AppSearch @mysearch="getCharacters" />
-    <CharactersList />
-  </main>
+    <main>
+      <AppSearch @mysearch="getCharacters" />
+      <CharactersList />
+    </main>
+  </div>
 </template>
 
 <style lang="scss">
